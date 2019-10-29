@@ -2,8 +2,10 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,8 +28,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="NoteEventUserId" layoutX="384.0" layoutY="373.0" mnemonicParsing="false" onAction="#NoteEventUser" prefHeight="25.0" prefWidth="132.0" text="Donner une note" />
-      <Button fx:id="ReserverEventUserId" layoutX="163.0" layoutY="373.0" mnemonicParsing="false" onAction="#ReserverEventUser" text=" Reserver évènements" />
+      <Button fx:id="ReserverEventUserId" layoutX="97.0" layoutY="373.0" mnemonicParsing="false" onAction="#ReserverEventUser" prefHeight="25.0" prefWidth="159.0" text=" Reserver évènements" />
       <TableView fx:id="UserEventTableId" layoutX="4.0" layoutY="145.0" prefHeight="211.0" prefWidth="642.0">
         <columns>
           <TableColumn fx:id="NomId" prefWidth="75.0" text="Nom" />
@@ -41,5 +42,9 @@
             <TableColumn fx:id="ImageId" prefWidth="75.0" text="Image" />
         </columns>
       </TableView>
+      <Button fx:id="AnnulerBt" layoutX="97.0" layoutY="373.0" mnemonicParsing="false" onAction="#annulerbta" prefHeight="25.0" prefWidth="75.0" text="Annuler" visible="false" />
+      <Button fx:id="ReserverBt" layoutX="177.0" layoutY="373.0" mnemonicParsing="false" onAction="#reserverbta" prefHeight="25.0" prefWidth="75.0" text="Reserver" visible="false" />
+      <TextField fx:id="ptf" editable="false" layoutX="337.0" layoutY="373.0" prefHeight="25.0" prefWidth="111.0" visible="false" />
+      <Spinner fx:id="nbsp" editable="true" layoutX="262.0" layoutY="373.0" onInputMethodTextChanged="#spchanged" prefHeight="25.0" prefWidth="82.0" visible="false" />
    </children>
 </AnchorPane>

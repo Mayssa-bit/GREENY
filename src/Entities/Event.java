@@ -13,7 +13,6 @@ import java.util.Objects;
  *
  * @author mayssa
  */
-// test
 public class Event {
     private int idEvenement;
     private String nomEvenement;

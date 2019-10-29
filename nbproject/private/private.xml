@@ -3,14 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/AddEventController.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/AcceuilEvent.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/AcceuilEventController.java</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Service/UserService.java</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/ReservationController.java</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Entities/User.java</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Service/ReservationService.java</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/AcceuilEventUser.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/AcceuilEventUserController.java</file>
-            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Entities/Event.java</file>
-            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/UpdateEventController.java</file>
-            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/ConsulterEventAdminController.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Service/EventService.java</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/AddEventController.java</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Entities/Event.java</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/AcceuilEventUser.fxml</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/UpdateEventController.java</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Entities/Reservation.java</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/ConsulterEventAdminController.java</file>
         </group>
     </open-files>
 </project-private>
