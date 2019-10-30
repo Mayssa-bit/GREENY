@@ -29,7 +29,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -70,6 +72,8 @@ public class ConsulterEventAdminController implements Initializable {
     ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
     @FXML
     private Button UpdateEventid;
+    @FXML
+    private TextField rechercheid;
 
     /**
      * Initializes the controller class.
@@ -229,4 +233,14 @@ public class ConsulterEventAdminController implements Initializable {
 //            ajoutdoneAlert.setContentText("Evénement supprimé");
 //            ajoutdoneAlert.show();
 //    }
+
+    @FXML
+    private void searchEvent(KeyEvent event) throws SQLException {
+        EventService searchtoup = new EventService();
+        String msg = rechercheid.getText().concat("%");
+        ArrayList<Event> ev = (ArrayList<Event>) searchtoup.chercher(msg);
+        ObservableList<Event> obs1 = FXCollections.observableArrayList(ev);
+        AdminEventTableId.setItems(obs1);
+    }
 }
+

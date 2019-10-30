@@ -7,9 +7,10 @@ package Entities;
 
 /**
  *
- * @author mayss
+ * @author HIDOUS MAYSSA
  */
 public class Reservation {
+
     private int id;
     private int idevent;
     private int iduser;
@@ -62,5 +63,5 @@ public class Reservation {
     public void setNbp(int nbp) {
         this.nbp = nbp;
     }
-    
+
 }

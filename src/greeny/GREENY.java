@@ -35,13 +35,16 @@ public class GREENY {
         Event e = new Event("Greeny", "Ariana", sqlDate, sqlDate, "fini", 20, 20, 5,"");
         EventService eser = new EventService();
         //eser.insererEvenement(e);
-        eser.updateEvenement (e,16);
+        //eser.updateEvenement (e,16);
         //eser.deleteEvenementById (5);
         //eser.displayEvenement();
         
         //System.out.println(eser.displayEvenement());
         //eser.selectEvenement();
         //System.out.println(eser.selectEvenement());
+        eser.chercher("MMM");
+        System.out.println(eser.chercher("MMM"));
+        
         
    
        

@@ -39,6 +39,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.InputMethodEvent;
 import javafx.stage.Stage;
 import utils.EMAIL;
+import utils.EMAIL2;
 
 /**
  * FXML Controller class
@@ -195,7 +196,7 @@ public class AcceuilEventUserController implements Initializable {
             ajoutdoneAlert.showAndWait();
                  Parent root = FXMLLoader.load(getClass().getResource("AcceuilEventUser.fxml"));
                  AnnulerBt.getScene().setRoot(root);
-                 EMAIL.sendEmail("mayssa.hidous@esprit.tn", "Reservation", "Vous avier reserver le "+eee.getDateDebut()+" pour "+r.getNbp()+" personne(s) au nom de Mayssa a l evennement "+eee.getNomEvenement()+" veuiller vous presenter qvec cette reservqqtion au pres de gichet afain de payer la somme de "+eee.getPrix()*r.getNbp()+ " DT Merci");
+                 EMAIL2.sendEmail("mayssa.hidous@esprit.tn", "Reservation", "Vous avier reserver le "+eee.getDateDebut()+" pour "+r.getNbp()+" personne(s) au nom de Mayssa a l evennement "+eee.getNomEvenement()+" veuiller vous presenter qvec cette reservqqtion au pres de gichet afain de payer la somme de "+eee.getPrix()*r.getNbp()+ " DT Merci");
                 System.out.println("reserver");
             }
             else {

@@ -11,9 +11,10 @@ import java.util.Objects;
 
 /**
  *
- * @author mayssa
+ * @author HIDOUS MAYSSA
  */
 public class Event {
+
     private int idEvenement;
     private String nomEvenement;
     private String adresse;
@@ -25,7 +26,7 @@ public class Event {
     private double prix;
     private String image;
 
-    public Event(int idEvenement, String nomEvenement, String adresse, Date dateDebut, Date dateFin, String etat, int nbPlace,int nbStand, double prix,String image) {
+    public Event(int idEvenement, String nomEvenement, String adresse, Date dateDebut, Date dateFin, String etat, int nbPlace, int nbStand, double prix, String image) {
         this.idEvenement = idEvenement;
         this.nomEvenement = nomEvenement;
         this.adresse = adresse;
@@ -33,31 +34,26 @@ public class Event {
         this.dateFin = dateFin;
         this.etat = etat;
         this.nbPlace = nbPlace;
-        this.nbStand= nbStand;
+        this.nbStand = nbStand;
         this.prix = prix;
-        this.image=image;
+        this.image = image;
     }
 
-    public Event(String nomEvenement, String adresse, Date dateDebut, Date dateFin, String etat, int nbPlace,int nbStand, double prix,String image) {
+    public Event(String nomEvenement, String adresse, Date dateDebut, Date dateFin, String etat, int nbPlace, int nbStand, double prix, String image) {
         this.nomEvenement = nomEvenement;
         this.adresse = adresse;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.etat = etat;
         this.nbPlace = nbPlace;
-        this.nbStand=nbStand;
+        this.nbStand = nbStand;
         this.prix = prix;
-        this.image=image;
-    }
-    
-    public Event() {
-       
+        this.image = image;
     }
 
-    /*public Event(String greeny, String nasr, JDBCType jdbcType, JDBCType jdbcType0, String en_Cours, int i, int i0, int i1, String tgv) {
-        
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }*/
+    public Event() {
+
+    }
 
     public int getIdEvenement() {
         return idEvenement;
@@ -82,12 +78,6 @@ public class Event {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
-
-    
-
-    
-
-    
 
     public Date getDateDebut() {
         return dateDebut;
@@ -211,5 +201,4 @@ public class Event {
         return true;
     }
 
-   
 }

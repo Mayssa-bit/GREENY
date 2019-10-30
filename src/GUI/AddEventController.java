@@ -75,10 +75,9 @@ public class AddEventController implements Initializable {
     private TextField imageeventid;
     @FXML
     private Button AddEventid;
-    
+
     File file;
     Stage stage;
-
 
     /**
      * Initializes the controller class.
@@ -88,24 +87,24 @@ public class AddEventController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         AddFinEventid.setDisable(true);
         testdate.setDayCellFactory(picker -> new DateCell() {
-        @Override
+            @Override
             public void updateItem(LocalDate date, boolean empty) {
-            super.updateItem(date, empty);
-                if (date.isBefore(LocalDate.now())) {        
+                super.updateItem(date, empty);
+                if (date.isBefore(LocalDate.now())) {
                     setDisable(true);
                     setStyle("-fx-background-color: #ffc0cb;");
                 }
             }
         });
-        testdate.valueProperty().addListener(new ChangeListener(){
+        testdate.valueProperty().addListener(new ChangeListener() {
             @Override
-            public void changed (ObservableValue observable, Object oldValue, Object newValue){
-            AddFinEventid.setDisable(false);
-            AddFinEventid.setDayCellFactory(picker -> new DateCell() {
-                @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                AddFinEventid.setDisable(false);
+                AddFinEventid.setDayCellFactory(picker -> new DateCell() {
+                    @Override
                     public void updateItem(LocalDate date, boolean empty) {
                         super.updateItem(date, empty);
-                        if (date.isBefore(testdate.getValue())) {  
+                        if (date.isBefore(testdate.getValue())) {
                             setDisable(true);
                             setStyle("-fx-background-color: #ffc0cb;");
                         }
@@ -113,23 +112,25 @@ public class AddEventController implements Initializable {
                 });
             }
         });
-    }             
-          
-          
+    }
 
-   
     @FXML
     private void AddEvent(ActionEvent event) throws SQLException, IOException {
-        if(addNomEventid.getText().isEmpty() | AddAdresseEventid.getText().isEmpty() | testdate.getValue()==null|AddFinEventid.getValue()==null | AddEtatEventid.getText().isEmpty()|AddPlaceEventid.getText().isEmpty()|AddStandEventid.getText().isEmpty()|AddPrixEventid.getText().isEmpty())
-            {
+        Event E = new Event();
+        if (addNomEventid.getText().isEmpty() | AddAdresseEventid.getText().isEmpty() | testdate.getValue() == null | AddFinEventid.getValue() == null | AddEtatEventid.getText().isEmpty() | AddPlaceEventid.getText().isEmpty() | AddStandEventid.getText().isEmpty() | AddPrixEventid.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("warning");
             alert.setHeaderText(null);
             alert.setContentText("Verify Your TextFields");
             alert.showAndWait();
-            
-             }
-	else{
+
+        } else if ((addNomEventid.getText().toString().equals(E.getNomEvenement())) && (!AddAdresseEventid.getText().toString().equals(E.getAdresse())) && (!Date.valueOf(testdate.getValue()).toString().equals(E.getDateDebut()))) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Cet event existe déjà");
+            alert.showAndWait();
+        } else {
             Event e = new Event();
             e.setNomEvenement(addNomEventid.getText());
             e.setAdresse(AddAdresseEventid.getText());
@@ -140,99 +141,85 @@ public class AddEventController implements Initializable {
             e.setNbStand(Integer.parseInt(AddStandEventid.getText()));
             e.setPrix(Integer.parseInt(AddPrixEventid.getText()));
             e.setImage(imageeventid.getText());
-            
-            
+
             EventService es = new EventService();
             es.insererEvenement(e);
-            // ((Node)event.getSource()).getScene().getWindow().hide();
-            FXMLLoader loader=new FXMLLoader(getClass().getResource("ConsulterEventAdmin.fxml"));
-            Parent root=loader.load();
-             Alert ajoutdoneAlert = new Alert(Alert.AlertType.INFORMATION);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ConsulterEventAdmin.fxml"));
+            Parent root = loader.load();
+            Alert ajoutdoneAlert = new Alert(Alert.AlertType.INFORMATION);
             ajoutdoneAlert.setTitle("Done");
             ajoutdoneAlert.setContentText("Evénement ajouté");
             ajoutdoneAlert.show();
             AddAdresseEventid.getScene().setRoot(root);
-//            Stage st = new Stage();
-//            Scene scene = new Scene(root);
-//            scene.setRoot(root);
-//            st.setScene(scene);
-//            st.show();
         }
-           
+
     }
 
-
     private void UpdateEvent(ActionEvent event) throws IOException, SQLException {
-        if(addNomEventid.getText().isEmpty() | AddAdresseEventid.getText().isEmpty() | testdate.getValue()==null|AddFinEventid.getValue()==null | AddEtatEventid.getText().isEmpty()|AddPlaceEventid.getText().isEmpty()|AddStandEventid.getText().isEmpty()|AddPrixEventid.getText().isEmpty())
-            {
+        if (addNomEventid.getText().isEmpty() | AddAdresseEventid.getText().isEmpty() | testdate.getValue() == null | AddFinEventid.getValue() == null | AddEtatEventid.getText().isEmpty() | AddPlaceEventid.getText().isEmpty() | AddStandEventid.getText().isEmpty() | AddPrixEventid.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("warning");
             alert.setHeaderText(null);
             alert.setContentText("Verify Your TextFields");
             alert.showAndWait();
-            
-             }
-	else{
-            Event e = new Event();   
-            if (!addNomEventid.getText().toString().equals("")){
-                e.setNomEvenement(addNomEventid.getText());}
-            if (!AddAdresseEventid.getText().toString().equals("")){
-                e.setAdresse(AddAdresseEventid.getText());}
-            if(!Date.valueOf(testdate.getValue()).toString().equals("")){
-                e.setDateDebut(Date.valueOf(testdate.getValue()));}
-            if(!Date.valueOf(AddFinEventid.getValue()).toString().equals("")){
-                e.setDateFin(Date.valueOf(AddFinEventid.getValue()));}
-            if (!AddEtatEventid.getText().toString().equals("")){
-                e.setEtat(AddEtatEventid.getText());}
-            if (!AddPlaceEventid.getText().toString().equals("")){
-            e.setNbPlace(Integer.parseInt(AddPlaceEventid.getText()));}
-            if (!AddStandEventid.getText().toString().equals("")){
-                e.setNbStand(Integer.parseInt(AddStandEventid.getText()));}
-            if (!AddPrixEventid.getText().toString().equals("")){
-                e.setPrix(Integer.parseInt(AddPrixEventid.getText()));}
-            if (!AddPrixEventid.getText().toString().equals("")){
-                e.setPrix(Integer.parseInt(AddPrixEventid.getText()));}
-            if (!imageeventid.getText().toString().equals("")){
-                e.setImage(imageeventid.getText());}
+
+        } else {
+            Event e = new Event();
+            if (!addNomEventid.getText().toString().equals("")) {
+                e.setNomEvenement(addNomEventid.getText());
+            }
+            if (!AddAdresseEventid.getText().toString().equals("")) {
+                e.setAdresse(AddAdresseEventid.getText());
+            }
+            if (!Date.valueOf(testdate.getValue()).toString().equals("")) {
+                e.setDateDebut(Date.valueOf(testdate.getValue()));
+            }
+            if (!Date.valueOf(AddFinEventid.getValue()).toString().equals("")) {
+                e.setDateFin(Date.valueOf(AddFinEventid.getValue()));
+            }
+            if (!AddEtatEventid.getText().toString().equals("")) {
+                e.setEtat(AddEtatEventid.getText());
+            }
+            if (!AddPlaceEventid.getText().toString().equals("")) {
+                e.setNbPlace(Integer.parseInt(AddPlaceEventid.getText()));
+            }
+            if (!AddStandEventid.getText().toString().equals("")) {
+                e.setNbStand(Integer.parseInt(AddStandEventid.getText()));
+            }
+            if (!AddPrixEventid.getText().toString().equals("")) {
+                e.setPrix(Integer.parseInt(AddPrixEventid.getText()));
+            }
+            if (!AddPrixEventid.getText().toString().equals("")) {
+                e.setPrix(Integer.parseInt(AddPrixEventid.getText()));
+            }
+            if (!imageeventid.getText().toString().equals("")) {
+                e.setImage(imageeventid.getText());
+            }
             EventService es = new EventService();
-            es.updateEvenement(e,Integer.parseInt(updateIdEventid.getText()));
-            
-            ((Node)event.getSource()).getScene().getWindow().hide();
-            FXMLLoader loader=new FXMLLoader(getClass().getResource("ConsulterEventAdmin.fxml"));
-            Parent root=loader.load();
+            es.updateEvenement(e, Integer.parseInt(updateIdEventid.getText()));
+
+            ((Node) event.getSource()).getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ConsulterEventAdmin.fxml"));
+            Parent root = loader.load();
             AddAdresseEventid.getScene().setRoot(root);
-//            Scene sc = new Scene(root);
-//            Stage st = new Stage();
-//            sc.setRoot(root);
-//            st.setScene(sc);
-//            st.show();
         }
     }
 
-
-    
     @FXML
     private void BackAddEvent(ActionEvent event) throws IOException {
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("ConsulterEventAdmin.fxml"));
-                Parent root=loader.load();
-                AddAdresseEventid.getScene().setRoot(root);
-//                Stage st = new Stage();
-//                Scene scene = new Scene(root);
-//                scene.setRoot(root);
-//                st.setScene(scene);
-//                st.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ConsulterEventAdmin.fxml"));
+        Parent root = loader.load();
+        AddAdresseEventid.getScene().setRoot(root);
     }
-
 
     @FXML
     private void ajoutphoto(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(
-                
-                new FileChooser.ExtensionFilter("Image Files","*.png","*.jpg","*.gif")
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
         );
         file = fileChooser.showOpenDialog(stage);
-        if (file!=null) {
+        if (file != null) {
             try {
                 String img = file.toURI().toURL().toString();
                 System.out.println(img);
@@ -241,11 +228,5 @@ public class AddEventController implements Initializable {
                 Logger.getLogger(AddEventController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }}
-
-     
-   
-
-
-    
-
+    }
+}

@@ -6,6 +6,7 @@
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/AcceuilEvent.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/AcceuilEventController.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Service/UserService.java</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/utils/EMAIL.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/ReservationController.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Entities/User.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Service/ReservationService.java</file>
@@ -14,9 +15,9 @@
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Service/EventService.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/AddEventController.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Entities/Event.java</file>
-            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/AcceuilEventUser.fxml</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/UpdateEventController.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/Entities/Reservation.java</file>
+            <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/DataBase/MyConnection.java</file>
             <file>file:/C:/Users/mayss/Documents/NetBeansProjects/GREENY/src/GUI/ConsulterEventAdminController.java</file>
         </group>
     </open-files>

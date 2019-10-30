@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -35,5 +36,6 @@
       <Button fx:id="AddEventId" layoutX="353.0" layoutY="455.0" mnemonicParsing="false" onAction="#AddEvent" prefHeight="25.0" prefWidth="72.0" text="Ajouter" />
       <Button fx:id="DeleteEventId" layoutX="441.0" layoutY="455.0" mnemonicParsing="false" onAction="#DeleteEvent" prefHeight="25.0" prefWidth="72.0" text="Supprimer" textAlignment="CENTER" />
       <Button fx:id="UpdateEventid" layoutX="529.0" layoutY="455.0" mnemonicParsing="false" onAction="#UpdateEvent" prefHeight="25.0" prefWidth="72.0" text="Modifier" />
+      <TextField fx:id="rechercheid" layoutX="36.0" layoutY="35.0" onKeyTyped="#searchEvent" />
    </children>
 </AnchorPane>

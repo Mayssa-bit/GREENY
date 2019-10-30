@@ -5,7 +5,8 @@ package Entities;
  * @author HP
  */
 public class User {
-     private int id;
+
+    private int id;
     private String nom;
     private String prenom;
     private String login;
@@ -38,7 +39,7 @@ public class User {
         this.phone = phone;
     }
 
-    public User(String nom, String prenom,String login, String mps, String adresse, String email, int phone, String type) {
+    public User(String nom, String prenom, String login, String mps, String adresse, String email, int phone, String type) {
         this.nom = nom;
         this.prenom = prenom;
         this.mps = mps;
@@ -46,10 +47,10 @@ public class User {
         this.email = email;
         this.phone = phone;
         this.type = type;
-        this.login=login;
+        this.login = login;
     }
 
-    public User(int id,String nom, String prenom, String login, String mps, String adresse, String email, int phone, String type) {
+    public User(int id, String nom, String prenom, String login, String mps, String adresse, String email, int phone, String type) {
         this.nom = nom;
         this.prenom = prenom;
         this.login = login;
@@ -58,7 +59,7 @@ public class User {
         this.email = email;
         this.phone = phone;
         this.type = type;
-        this.id=id;
+        this.id = id;
     }
 
     public User(int id, String nom, String prenom, String login, String mps, int cin, String adresse, String email, int phone, String type) {
@@ -73,9 +74,6 @@ public class User {
         this.phone = phone;
         this.type = type;
     }
-
-   
-    
 
     public User(String nom, String prenom, String login, String mps, int cin, String adresse, String email, int phone, String type) {
         this.nom = nom;
@@ -181,6 +179,5 @@ public class User {
     public String toString() {
         return "User{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login + ", mps=" + mps + ", cin=" + cin + ", adresse=" + adresse + ", email=" + email + ", phone=" + phone + ", type=" + type + '}';
     }
-    
-    
+
 }

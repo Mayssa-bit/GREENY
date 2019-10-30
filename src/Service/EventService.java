@@ -23,118 +23,105 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author mayssa
+ * @author HIDOUS MAYSSA
  */
-
-
-
 public class EventService {
-     Connection ds;
+
+    Connection ds;
 
     public EventService() throws SQLException {
-         ds = MyConnection.getInstance().getCnx();
+        ds = MyConnection.getInstance().getCnx();
     }
-    
-    public void insererEvenement (Event e)
-    {
-        try { 
-            String req="INSERT INTO  event(nomEvenement,adresse,dateDebut,dateFin,etat,nbPlace,nbStand,prix,image)"+"VALUES ('"+e.getNomEvenement()+"','"+e.getAdresse()+"','"+e.getDateDebut()+"','"+e.getDateFin()+"','"+e.getEtat()+"','"+e.getNbPlace()+"','"+e.getNbStand()+"','"+e.getPrix()+"','"+e.getImage()+"')";
-            //String req="INSERT INTO event (nomEvenement,adresse,dateDebut,dateFin,etat,nbPlace,nbStand,prix,image) VALUES(?,?,?,?,?,?,?,?,?)" ;  
-            java.util.Date dateDebut =  Calendar.getInstance().getTime();
-            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-mm-dd");  
-            PreparedStatement ste = ds.prepareStatement(req) ;
-            
-            
-            ste.executeUpdate(req) ; 
+
+    public void insererEvenement(Event e) {
+        try {
+            String req = "INSERT INTO  event(nomEvenement,adresse,dateDebut,dateFin,etat,nbPlace,nbStand,prix,image)" + "VALUES ('" + e.getNomEvenement() + "','" + e.getAdresse() + "','" + e.getDateDebut() + "','" + e.getDateFin() + "','" + e.getEtat() + "','" + e.getNbPlace() + "','" + e.getNbStand() + "','" + e.getPrix() + "','" + e.getImage() + "')"; 
+            java.util.Date dateDebut = Calendar.getInstance().getTime();
+            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-mm-dd");
+            PreparedStatement ste = ds.prepareStatement(req);
+            ste.executeUpdate(req);
             System.out.println("event ajouté");
         } 
         catch (SQLException ex) {
             System.out.println(ex.getMessage());
             System.out.println("erreur insertion");
         }
-    
     }
-    
-    
-    public void updateEvenement (Event e,int id)
-    {
-        try { 
-            String req="UPDATE event SET nomEvenement=?,adresse=?,dateDebut=?,dateFin=?,etat=?,nbPlace=?,nbStand=?,prix=?,image=?  WHERE idEvenement =?" ; 
-            java.util.Date dateDebut =  Calendar.getInstance().getTime();
-            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-mm-dd");  
-            PreparedStatement ste = ds.prepareStatement(req) ;
-             
-            ste.setString(1,e.getNomEvenement()) ; 
-            ste.setString(2,e.getAdresse()) ; 
-            ste.setDate(3,e.getDateDebut());
-            ste.setDate(4,e.getDateFin());
-            ste.setString(5,e.getEtat());
-            ste.setInt(6,e.getNbPlace());
-            ste.setInt(7,e.getNbStand());
-            ste.setDouble(8,e.getPrix());
-            ste.setString(9,e.getImage());
-            
-            ste.setInt(10,id);
-            ste.executeUpdate() ; 
-            System.out.println("Event modifié");
+
+    public void updateEvenement(Event e, int id) {
+        try {
+            String req = "UPDATE event SET nomEvenement=?,adresse=?,dateDebut=?,dateFin=?,etat=?,nbPlace=?,nbStand=?,prix=?,image=?  WHERE idEvenement =?";
+            java.util.Date dateDebut = Calendar.getInstance().getTime();
+            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-mm-dd");
+            PreparedStatement ste = ds.prepareStatement(req);
+
+            ste.setString(1, e.getNomEvenement());
+            ste.setString(2, e.getAdresse());
+            ste.setDate(3, e.getDateDebut());
+            ste.setDate(4, e.getDateFin());
+            ste.setString(5, e.getEtat());
+            ste.setInt(6, e.getNbPlace());
+            ste.setInt(7, e.getNbStand());
+            ste.setDouble(8, e.getPrix());
+            ste.setString(9, e.getImage());
+
+            ste.setInt(10, id);
+            ste.executeUpdate();
+            System.out.println("Evénement modifié");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
-    
-    
-    public void deleteEvenementById (int id)
-    {
-    String req="DELETE from event where  idEvenement =?" ; 
-        try { 
-            PreparedStatement ste = ds.prepareStatement(req) ;
-            ste.setInt(1,id) ;
-            ste.executeUpdate() ;
-            System.out.println("Event supprimé");
+
+    public void deleteEvenementById(int id) {
+        String req = "DELETE FROM event WHERE idEvenement =?";
+        try {
+            PreparedStatement ste = ds.prepareStatement(req);
+            ste.setInt(1, id);
+            ste.executeUpdate();
+            System.out.println("Evénement supprimé");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    
     }
-    
-    public List<Event> selectEvenement ()
-    {
-        List<Event> list =new ArrayList<>() ; 
-    String req ; 
+
+    public List<Event> selectEvenement() {
+        List<Event> list = new ArrayList<>();
+        String req;
         req = "SELECT *  FROM evenement ";
-        try { 
-            PreparedStatement ste = ds.prepareStatement(req) ;
-             ResultSet result =ste.executeQuery() ; 
-            while (result.next()){
-            list.add(new Event(
-                                    result.getInt("idEvenement"),
-                                    result.getString("nomEvenement"),
-                                    result.getString("adresse"),
-                                    result.getDate("dateDebut"),
-                                    result.getDate("dateFin"),
-                                    result.getString("etat"),
-                                    result.getInt("nbPlace"),
-                                    result.getInt("nbStand"),
-                                    result.getInt("prix"),
-                                    result.getString("image")
-            )); 
+        try {
+            PreparedStatement ste = ds.prepareStatement(req);
+            ResultSet result = ste.executeQuery();
+            while (result.next()) {
+                list.add(new Event(
+                        result.getInt("idEvenement"),
+                        result.getString("nomEvenement"),
+                        result.getString("adresse"),
+                        result.getDate("dateDebut"),
+                        result.getDate("dateFin"),
+                        result.getString("etat"),
+                        result.getInt("nbPlace"),
+                        result.getInt("nbStand"),
+                        result.getInt("prix"),
+                        result.getString("image")
+                ));
             }
-            
+
         } catch (SQLException ex) {
-            
+
         }
-    return list ; 
-      }
-    public List<Event> displayEvenement () throws SQLException
-    {
-        List<Event> list =new ArrayList<>() ; 
-    String req ; 
-        
-        try { 
+        return list;
+    }
+
+    public List<Event> displayEvenement() throws SQLException {
+        List<Event> list = new ArrayList<>();
+        String req;
+
+        try {
             req = "SELECT *  FROM event ";
-          Statement ste = ds.createStatement() ;
-             ResultSet result =ste.executeQuery(req) ; 
-            while (result.next()){
+            Statement ste = ds.createStatement();
+            ResultSet result = ste.executeQuery(req);
+            while (result.next()) {
                 Event e = new Event();
                 e.setIdEvenement(result.getInt(1));
                 e.setNomEvenement(result.getString("nomEvenement"));
@@ -146,48 +133,29 @@ public class EventService {
                 e.setNbStand(result.getInt("nbStand"));
                 e.setPrix(result.getInt("prix"));
                 e.setImage(result.getString("image"));
-            list.add(e);}
-                                    
-                                    
-            
-            
-        } catch (SQLException ex) {
+                list.add(e);
+            }
+
+        } 
+        catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    return list ; 
-      }
-    
-    /*public List<Event> selectEvenementAvenir (String fl)
-    {
-        List<Event> list =new ArrayList<>() ; 
-    String req ; 
-        
-        req = "SELECT * FROM `event` WHERE dateDebut>= sysdate()";
-        if(!fl.isEmpty())req = req + " and nomEvenement LIKE ?";
-        try { 
-            PreparedStatement ste = ds.prepareStatement(req) ;
-            if(!fl.isEmpty()) ste.setString(1, "%"+fl+"%");
-             ResultSet result =ste.executeQuery() ; 
-            while (result.next()){
-            list.add(new Event(
-                                    result.getInt("idEvenement"),
-                                    result.getString("nomEvenement"),
-                                    result.getString("adresse"),
-                                    result.getDate("dateDebut"),
-                                    result.getDate("dateFin"),
-                                    result.getString("etat"),
-                                    result.getInt("nbPlace"),
-                                    result.getInt("nbStand"),
-                                    result.getInt("prix"),
-                                    result.getString("image")
-            )); 
+        return list;
+    }
+
+    public List<Event> chercher(String nomEvent) {
+        String req = "SELECT * FROM event WHERE nomEvenement LIKE '" + nomEvent + "'";
+        List<Event> list = new ArrayList<>();
+        try {
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                list.add(new Event(rs.getString("nomEvenement"), rs.getString("adresse"), rs.getDate("dateDebut"), rs.getDate("dateFin"), rs.getString("etat"), rs.getInt("nbPlace"), rs.getInt("nbStand"), rs.getInt("prix"), rs.getString("image")));
             }
-            
         } catch (SQLException ex) {
-            
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
         }
-    return list ; 
-      }*/
-    
-    
+        return list;
+    }
+
 }
