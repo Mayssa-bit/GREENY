@@ -157,5 +157,13 @@ public class EventService {
         }
         return list;
     }
+    public boolean isInt(String s)
+    {
+        try
+        { int i = Integer.parseInt(s); return true; }
+
+        catch(NumberFormatException er)
+        { return false; }
+    }
 
 }

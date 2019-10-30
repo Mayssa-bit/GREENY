@@ -38,7 +38,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author mayss
+ * @author HIDOUS MAYSSA
  */
 public class UpdateEventController implements Initializable {
 
@@ -66,6 +66,8 @@ public class UpdateEventController implements Initializable {
     Stage stage;
     @FXML
     private TextField IdId;
+    @FXML
+    private Button BUpdateEventId;
 
     /**
      * Initializes the controller class.
@@ -74,24 +76,24 @@ public class UpdateEventController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         UpdateFinId.setDisable(true);
         UpdateDebutId.setDayCellFactory(picker -> new DateCell() {
-        @Override
+            @Override
             public void updateItem(LocalDate date, boolean empty) {
-            super.updateItem(date, empty);
-                if (date.isBefore(LocalDate.now())) {        
+                super.updateItem(date, empty);
+                if (date.isBefore(LocalDate.now())) {
                     setDisable(true);
                     setStyle("-fx-background-color: #ffc0cb;");
                 }
             }
         });
-        UpdateDebutId.valueProperty().addListener(new ChangeListener(){
+        UpdateDebutId.valueProperty().addListener(new ChangeListener() {
             @Override
-            public void changed (ObservableValue observable, Object oldValue, Object newValue){
-            UpdateFinId.setDisable(false);
-            UpdateFinId.setDayCellFactory(picker -> new DateCell() {
-                @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                UpdateFinId.setDisable(false);
+                UpdateFinId.setDayCellFactory(picker -> new DateCell() {
+                    @Override
                     public void updateItem(LocalDate date, boolean empty) {
                         super.updateItem(date, empty);
-                        if (date.isBefore(UpdateDebutId.getValue())) {  
+                        if (date.isBefore(UpdateDebutId.getValue())) {
                             setDisable(true);
                             setStyle("-fx-background-color: #ffc0cb;");
                         }
@@ -99,17 +101,16 @@ public class UpdateEventController implements Initializable {
                 });
             }
         });
-    }   
+    }
 
     @FXML
     private void UpdateImage(ActionEvent event) {
-         FileChooser fileChooser = new FileChooser();
+        FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(
-                
-                new FileChooser.ExtensionFilter("Image Files","*.png","*.jpg","*.gif")
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
         );
         file = fileChooser.showOpenDialog(stage);
-        if (file!=null) {
+        if (file != null) {
             try {
                 String img = file.toURI().toURL().toString();
                 System.out.println(img);
@@ -122,55 +123,69 @@ public class UpdateEventController implements Initializable {
 
     @FXML
     private void Updateevent(ActionEvent event) throws SQLException, IOException {
-        if(UpdateNomId.getText().isEmpty() | UpdateAdresseId.getText().isEmpty() | UpdateDebutId.getValue()==null|UpdateFinId.getValue()==null | UpdateEtatId.getText().isEmpty()|UpdatePlaceId.getText().isEmpty()|UpdateStandId.getText().isEmpty()|UpdatePrixId.getText().isEmpty())
-            {
+        EventService es = new EventService();
+        if (UpdateNomId.getText().isEmpty() | UpdateAdresseId.getText().isEmpty() | UpdateDebutId.getValue() == null | UpdateFinId.getValue() == null | UpdateEtatId.getText().isEmpty() | UpdatePlaceId.getText().isEmpty() | UpdateStandId.getText().isEmpty() | UpdatePrixId.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("warning");
             alert.setHeaderText(null);
-            alert.setContentText("Verify Your TextFields");
-            alert.showAndWait();
-            
-             }
-	else{
-            Event e = new Event();   
-            if (!UpdateNomId.getText().toString().equals("")){
-                e.setNomEvenement(UpdateNomId.getText());}
-            if (!UpdateAdresseId.getText().toString().equals("")){
-                e.setAdresse(UpdateAdresseId.getText());}
-            if(!Date.valueOf(UpdateDebutId.getValue()).toString().equals("")){
-                e.setDateDebut(Date.valueOf(UpdateDebutId.getValue()));}
-            if(!Date.valueOf(UpdateFinId.getValue()).toString().equals("")){
-                e.setDateFin(Date.valueOf(UpdateFinId.getValue()));}
-            if (!UpdateEtatId.getText().toString().equals("")){
-                e.setEtat(UpdateEtatId.getText());}
-            if (!UpdatePlaceId.getText().toString().equals("")){
-            e.setNbPlace(Integer.parseInt(UpdatePlaceId.getText()));}
-            if (!UpdateStandId.getText().toString().equals("")){
-                e.setNbStand(Integer.parseInt(UpdateStandId.getText()));}
-            if (!UpdatePrixId.getText().toString().equals("")){
-                e.setPrix(Integer.parseInt(UpdatePrixId.getText()));}
-            if (!UpdateImageId.getText().toString().equals("")){
-                e.setImage(UpdateImageId.getText());}
-            EventService es = new EventService();
-            es.updateEvenement(e,Integer.parseInt(IdId.getText()));
-            
+            alert.setContentText("Vous devez remplir tous les champs");
+            alert.showAndWait();}
+        else if ((!es.isInt(UpdatePlaceId.getText())) || (!es.isInt(UpdateStandId.getText()))){
+            Alert alert1 = new Alert(Alert.AlertType.WARNING);
+            alert1.setTitle("warning");
+            alert1.setHeaderText(null);
+            alert1.setContentText("Verify Your TextFields");
+            alert1.showAndWait();
+                     }
+        
+        else {
+            Event e = new Event();
+            if (!UpdateNomId.getText().toString().equals("")) {
+                e.setNomEvenement(UpdateNomId.getText());
+            }
+            if (!UpdateAdresseId.getText().toString().equals("")) {
+                e.setAdresse(UpdateAdresseId.getText());
+            }
+            if (!Date.valueOf(UpdateDebutId.getValue()).toString().equals("")) {
+                e.setDateDebut(Date.valueOf(UpdateDebutId.getValue()));
+            }
+            if (!Date.valueOf(UpdateFinId.getValue()).toString().equals("")) {
+                e.setDateFin(Date.valueOf(UpdateFinId.getValue()));
+            }
+            if (!UpdateEtatId.getText().toString().equals("")) {
+                e.setEtat(UpdateEtatId.getText());
+            }
+            if (!UpdatePlaceId.getText().toString().equals("")) {
+                e.setNbPlace(Integer.parseInt(UpdatePlaceId.getText()));
+            }
+            if (!UpdateStandId.getText().toString().equals("")) {
+                e.setNbStand(Integer.parseInt(UpdateStandId.getText()));
+            }
+            if (!UpdatePrixId.getText().toString().equals("")) {
+                e.setPrix(Integer.parseInt(UpdatePrixId.getText()));
+            }
+            if (!UpdateImageId.getText().toString().equals("")) {
+                e.setImage(UpdateImageId.getText());
+            }
+            EventService es1 = new EventService();
+            es1.updateEvenement(e, Integer.parseInt(IdId.getText()));
+
             Alert ajoutdoneAlert = new Alert(Alert.AlertType.INFORMATION);
             ajoutdoneAlert.setTitle("Done");
             ajoutdoneAlert.setContentText("Evénement Modifié");
-            ajoutdoneAlert.show();
-            
-            //((Node)event.getSource()).getScene().getWindow().hide();
-            FXMLLoader loader=new FXMLLoader(getClass().getResource("ConsulterEventAdmin.fxml"));
-            Parent root=loader.load();
+            ajoutdoneAlert.showAndWait();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ConsulterEventAdmin.fxml"));
+            Parent root = loader.load();
             UpdateAdresseId.getScene().setRoot(root);
-//            Scene sc = new Scene(root);
-//            Stage st = new Stage();
-//            sc.setRoot(root);
-//            st.setScene(sc);
-//            st.show();
         }
-               
+
     }
-    
-    
+
+    @FXML
+    private void BUpdateEvent(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ConsulterEventAdmin.fxml"));
+        Parent root = loader.load();
+        UpdateAdresseId.getScene().setRoot(root);
+    }
+
 }

@@ -44,7 +44,7 @@ import utils.EMAIL2;
 /**
  * FXML Controller class
  *
- * @author mayss
+ * @author HIDOUS MAYSSA
  */
 public class AcceuilEventUserController implements Initializable {
 
@@ -72,9 +72,6 @@ public class AcceuilEventUserController implements Initializable {
     private TableColumn<Event, String> PrixId;
     @FXML
     private TableColumn<Event, String> ImageId;
-    ObservableList<Event> List_Event = FXCollections.observableArrayList();
-    ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
-    
     @FXML
     private Button AnnulerBt;
     @FXML
@@ -83,131 +80,102 @@ public class AcceuilEventUserController implements Initializable {
     private TextField ptf;
     @FXML
     private Spinner<Integer> nbsp;
-
+    ObservableList<Event> List_Event = FXCollections.observableArrayList();
+    ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         SpinnerValueFactory<Integer> valueFactory = //
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 1);
-          nbsp.setValueFactory(valueFactory);
-          nbsp.valueProperty().addListener((e,o,n)->{
-               ptf.setText("Prix: "+nbsp.getValue()*UserEventTableId.getSelectionModel().getSelectedItem().getPrix()+"Dt");
-                 
-           
-          });
-          ReserverEventUserId.setDisable(true);
-          UserEventTableId.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-    if (newSelection != null) {
-        ReserverEventUserId.setDisable(false);
-    }
-});
-                try {
-                    EventService es = new EventService();
-                    Event e = new Event();
-                    ArrayList<Event> pers;
-                    try {
-                        pers = (ArrayList<Event>) es.displayEvenement();
-                        ObservableList<Event> obs=FXCollections.observableArrayList(pers);
-                        UserEventTableId.setItems(obs);
-                        NomId.setCellValueFactory(new PropertyValueFactory<>("nomEvenement") );
-                        //NomId.cellFactoryProperty();
-                        AdresseId.setCellValueFactory(new PropertyValueFactory<>("adresse") );
-                        //AdresseId.cellFactoryProperty();
-                        DebutId.setCellValueFactory(new PropertyValueFactory<>("dateDebut") );
-                        //DebutId.cellFactoryProperty();
-                        FinId.setCellValueFactory(new PropertyValueFactory<>("dateFin") );
-                        //FinId.cellFactoryProperty();
-                        EtatId.setCellValueFactory(new PropertyValueFactory<>("etat") );
-                        // EtatId.cellFactoryProperty();
-                        PlaceId.setCellValueFactory(new PropertyValueFactory<>("nbPlace"));
-                        //PlaceId.cellFactoryProperty();
-                        StandId.setCellValueFactory(new PropertyValueFactory<>("nbStand") );
-                        //StandsId.cellFactoryProperty();
-                        PrixId.setCellValueFactory(new PropertyValueFactory<>("prix") );
-                        //PrixId.cellFactoryProperty();
-                        ImageId.setCellValueFactory(new PropertyValueFactory<>("image"));
-                        //ImageId.cellFactoryProperty();
-                        
-                    } catch (SQLException ex) {
-                        Logger.getLogger(AcceuilEventUserController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                } catch (SQLException ex) {
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 1);
+        nbsp.setValueFactory(valueFactory);
+        nbsp.valueProperty().addListener((e, o, n) -> {
+        ptf.setText("Prix: " + nbsp.getValue() * UserEventTableId.getSelectionModel().getSelectedItem().getPrix() + "Dt");
+        });
+        ReserverEventUserId.setDisable(true);
+        UserEventTableId.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                ReserverEventUserId.setDisable(false);
+            }
+        });
+        try {
+            EventService es = new EventService();
+            Event e = new Event();
+            ArrayList<Event> pers;
+            try {
+                pers = (ArrayList<Event>) es.displayEvenement();
+                ObservableList<Event> obs = FXCollections.observableArrayList(pers);
+                UserEventTableId.setItems(obs);
+                NomId.setCellValueFactory(new PropertyValueFactory<>("nomEvenement"));
+                AdresseId.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+                DebutId.setCellValueFactory(new PropertyValueFactory<>("dateDebut"));
+                FinId.setCellValueFactory(new PropertyValueFactory<>("dateFin"));
+                EtatId.setCellValueFactory(new PropertyValueFactory<>("etat"));
+                PlaceId.setCellValueFactory(new PropertyValueFactory<>("nbPlace"));
+                StandId.setCellValueFactory(new PropertyValueFactory<>("nbStand"));
+                PrixId.setCellValueFactory(new PropertyValueFactory<>("prix"));
+                ImageId.setCellValueFactory(new PropertyValueFactory<>("image"));
+
+            } catch (SQLException ex) {
+                Logger.getLogger(AcceuilEventUserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (SQLException ex) {
             Logger.getLogger(AcceuilEventUserController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
+    }
 
     @FXML
     private void BackAcceuilEventUser(ActionEvent event) throws IOException {
-            ((Node)event.getSource()).getScene().getWindow().hide();
-            FXMLLoader loader=new FXMLLoader(getClass().getResource("AcceuilEvent.fxml"));
-            Parent root=loader.load();
-//            Stage st = new Stage();
-//            Scene scene = new Scene(root);
-//            scene.setRoot(root);
-//            st.setScene(scene);
-//            st.show();
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AcceuilEvent.fxml"));
+        Parent root = loader.load();
     }
-
 
     @FXML
     private void ReserverEventUser(ActionEvent event) {
-        
-        
-        
-       
-            ReserverEventUserId.setVisible(false);
-            AnnulerBt.setVisible(true);
-            ReserverBt.setVisible(true);
-            nbsp.setVisible(true);
-            nbsp.getValueFactory().setValue(Integer.MIN_VALUE);
-            ptf.setVisible(true);
-            
-            
-      
-        
-        
+        ReserverEventUserId.setVisible(false);
+        AnnulerBt.setVisible(true);
+        ReserverBt.setVisible(true);
+        nbsp.setVisible(true);
+        nbsp.getValueFactory().setValue(Integer.MIN_VALUE);
+        ptf.setVisible(true);
     }
-
-
 
     @FXML
     private void annulerbta(ActionEvent event) {
         ReserverEventUserId.setVisible(true);
         AnnulerBt.setVisible(false);
         ReserverBt.setVisible(false);
-       nbsp.setVisible(false);
-      ptf.setVisible(false);
-        
+        nbsp.setVisible(false);
+        ptf.setVisible(false);
+
     }
 
     @FXML
     private void reserverbta(ActionEvent event) throws IOException {
-        
+
         try {
-            Event eee=UserEventTableId.getSelectionModel().getSelectedItem();
+            Event eee = UserEventTableId.getSelectionModel().getSelectedItem();
             Reservation r = new Reservation(eee.getIdEvenement(), 13, nbsp.getValue());
             ReservationService rs = new ReservationService();
-            if(rs.reserver(r)==1){
+            if (rs.reserver(r) == 1) {
                 Alert ajoutdoneAlert = new Alert(Alert.AlertType.INFORMATION);
-            ajoutdoneAlert.setTitle("Reservation");
-            ajoutdoneAlert.setContentText("Réservation validée");
-            ajoutdoneAlert.showAndWait();
-                 Parent root = FXMLLoader.load(getClass().getResource("AcceuilEventUser.fxml"));
-                 AnnulerBt.getScene().setRoot(root);
-                 EMAIL2.sendEmail("mayssa.hidous@esprit.tn", "Reservation", "Vous avier reserver le "+eee.getDateDebut()+" pour "+r.getNbp()+" personne(s) au nom de Mayssa a l evennement "+eee.getNomEvenement()+" veuiller vous presenter qvec cette reservqqtion au pres de gichet afain de payer la somme de "+eee.getPrix()*r.getNbp()+ " DT Merci");
+                ajoutdoneAlert.setTitle("Reservation");
+                ajoutdoneAlert.setContentText("Réservation validée");
+                ajoutdoneAlert.showAndWait();
+                Parent root = FXMLLoader.load(getClass().getResource("AcceuilEventUser.fxml"));
+                AnnulerBt.getScene().setRoot(root);
+                EMAIL2.sendEmail("mayssa.hidous@esprit.tn", "Reservation", "Vous avier reserver le " + eee.getDateDebut() + " pour " + r.getNbp() + " personne(s) au nom de Mayssa a l evennement " + eee.getNomEvenement() + " veuiller vous presenter qvec cette reservqqtion au pres de gichet afain de payer la somme de " + eee.getPrix() * r.getNbp() + " DT Merci");
                 System.out.println("reserver");
-            }
-            else {
-                 Alert ajoutdoneAlert = new Alert(Alert.AlertType.WARNING);
-            ajoutdoneAlert.setTitle("alerte");
-            ajoutdoneAlert.setContentText("Pas de place disponible");
-            ajoutdoneAlert.showAndWait();
+            } else {
+                Alert ajoutdoneAlert = new Alert(Alert.AlertType.WARNING);
+                ajoutdoneAlert.setTitle("alerte");
+                ajoutdoneAlert.setContentText("Pas de place disponible");
+                ajoutdoneAlert.showAndWait();
                 System.out.println("error");
             }
-            
-            
+
             ReserverEventUserId.setVisible(true);
             AnnulerBt.setVisible(false);
             ReserverBt.setVisible(false);
@@ -216,16 +184,12 @@ public class AcceuilEventUserController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(AcceuilEventUserController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
     }
 
     @FXML
     private void spchanged(InputMethodEvent event) {
-        
-        ptf.setText("Prix: "+nbsp.getValue()*UserEventTableId.getSelectionModel().getSelectedItem().getPrix()+"Dt");
-        
-        System.out.println("aaaaaaaaaaaaaaaa");
-        
+        ptf.setText("Prix: " + nbsp.getValue() * UserEventTableId.getSelectionModel().getSelectedItem().getPrix() + "Dt");
     }
-    
+
 }

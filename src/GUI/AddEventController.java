@@ -48,7 +48,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author mayssa
+ * @author HIDOUS MAYSSA
  */
 public class AddEventController implements Initializable {
 
@@ -82,7 +82,6 @@ public class AddEventController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         AddFinEventid.setDisable(true);
@@ -116,19 +115,28 @@ public class AddEventController implements Initializable {
 
     @FXML
     private void AddEvent(ActionEvent event) throws SQLException, IOException {
+        EventService ess = new EventService();
         Event E = new Event();
         if (addNomEventid.getText().isEmpty() | AddAdresseEventid.getText().isEmpty() | testdate.getValue() == null | AddFinEventid.getValue() == null | AddEtatEventid.getText().isEmpty() | AddPlaceEventid.getText().isEmpty() | AddStandEventid.getText().isEmpty() | AddPrixEventid.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("warning");
             alert.setHeaderText(null);
-            alert.setContentText("Verify Your TextFields");
+            alert.setContentText("Vous devez remplir tous les champs");
             alert.showAndWait();
 
-        } else if ((addNomEventid.getText().toString().equals(E.getNomEvenement())) && (!AddAdresseEventid.getText().toString().equals(E.getAdresse())) && (!Date.valueOf(testdate.getValue()).toString().equals(E.getDateDebut()))) {
+        } 
+        else if ((!ess.isInt(AddPlaceEventid.getText())) || (!ess.isInt(AddStandEventid.getText()))){
+            Alert alert1 = new Alert(Alert.AlertType.WARNING);
+            alert1.setTitle("warning");
+            alert1.setHeaderText(null);
+            alert1.setContentText("Verify Your TextFields");
+            alert1.showAndWait();
+        }
+        else if ((addNomEventid.getText().toString().equals(E.getNomEvenement())) && (!AddAdresseEventid.getText().toString().equals(E.getAdresse())) && (!Date.valueOf(testdate.getValue()).toString().equals(E.getDateDebut()))) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("warning");
             alert.setHeaderText(null);
-            alert.setContentText("Cet event existe déjà");
+            alert.setContentText("Cet événement existe déjà");
             alert.showAndWait();
         } else {
             Event e = new Event();
@@ -153,56 +161,6 @@ public class AddEventController implements Initializable {
             AddAdresseEventid.getScene().setRoot(root);
         }
 
-    }
-
-    private void UpdateEvent(ActionEvent event) throws IOException, SQLException {
-        if (addNomEventid.getText().isEmpty() | AddAdresseEventid.getText().isEmpty() | testdate.getValue() == null | AddFinEventid.getValue() == null | AddEtatEventid.getText().isEmpty() | AddPlaceEventid.getText().isEmpty() | AddStandEventid.getText().isEmpty() | AddPrixEventid.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("warning");
-            alert.setHeaderText(null);
-            alert.setContentText("Verify Your TextFields");
-            alert.showAndWait();
-
-        } else {
-            Event e = new Event();
-            if (!addNomEventid.getText().toString().equals("")) {
-                e.setNomEvenement(addNomEventid.getText());
-            }
-            if (!AddAdresseEventid.getText().toString().equals("")) {
-                e.setAdresse(AddAdresseEventid.getText());
-            }
-            if (!Date.valueOf(testdate.getValue()).toString().equals("")) {
-                e.setDateDebut(Date.valueOf(testdate.getValue()));
-            }
-            if (!Date.valueOf(AddFinEventid.getValue()).toString().equals("")) {
-                e.setDateFin(Date.valueOf(AddFinEventid.getValue()));
-            }
-            if (!AddEtatEventid.getText().toString().equals("")) {
-                e.setEtat(AddEtatEventid.getText());
-            }
-            if (!AddPlaceEventid.getText().toString().equals("")) {
-                e.setNbPlace(Integer.parseInt(AddPlaceEventid.getText()));
-            }
-            if (!AddStandEventid.getText().toString().equals("")) {
-                e.setNbStand(Integer.parseInt(AddStandEventid.getText()));
-            }
-            if (!AddPrixEventid.getText().toString().equals("")) {
-                e.setPrix(Integer.parseInt(AddPrixEventid.getText()));
-            }
-            if (!AddPrixEventid.getText().toString().equals("")) {
-                e.setPrix(Integer.parseInt(AddPrixEventid.getText()));
-            }
-            if (!imageeventid.getText().toString().equals("")) {
-                e.setImage(imageeventid.getText());
-            }
-            EventService es = new EventService();
-            es.updateEvenement(e, Integer.parseInt(updateIdEventid.getText()));
-
-            ((Node) event.getSource()).getScene().getWindow().hide();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ConsulterEventAdmin.fxml"));
-            Parent root = loader.load();
-            AddAdresseEventid.getScene().setRoot(root);
-        }
     }
 
     @FXML

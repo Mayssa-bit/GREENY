@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author mayssa
+ * @author HIDOUS MAYSSA
  */
 public class AcceuilEventController implements Initializable {
 
@@ -35,28 +35,19 @@ public class AcceuilEventController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         // TODO
-    }    
+    }
 
     @FXML
     private void GererEvent(ActionEvent event) throws IOException {
-        // ((Node)event.getSource()).getScene().getWindow().hide();
-            FXMLLoader loader=new FXMLLoader(getClass().getResource("ConsulterEventAdmin.fxml"));
-            Parent root=loader.load();
-         //   Stage st = new Stage();
-         //   Scene scene = new Scene(root);
-         BackEventId.getScene().setRoot(root);
-         //   scene.setRoot(root);
-           // st.setScene(scene);
-            //st.show();
-            
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ConsulterEventAdmin.fxml"));
+        Parent root = loader.load();
+        BackEventId.getScene().setRoot(root);
     }
-
 
     @FXML
     private void BackEvent(ActionEvent event) {
     }
 
-    
 }

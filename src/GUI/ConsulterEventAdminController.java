@@ -38,7 +38,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author mayss
+ * @author HIDOUS MAYSSA
  */
 public class ConsulterEventAdminController implements Initializable {
 
@@ -89,23 +89,14 @@ public class ConsulterEventAdminController implements Initializable {
                 ObservableList<Event> obs = FXCollections.observableArrayList(pers);
                 AdminEventTableId.setItems(obs);
                 NomId.setCellValueFactory(new PropertyValueFactory<>("nomEvenement"));
-                //NomId.cellFactoryProperty();
                 AdresseId.setCellValueFactory(new PropertyValueFactory<>("adresse"));
-                //AdresseId.cellFactoryProperty();
                 DebutId.setCellValueFactory(new PropertyValueFactory<>("dateDebut"));
-                //DebutId.cellFactoryProperty();
                 FinId.setCellValueFactory(new PropertyValueFactory<>("dateFin"));
-                //FinId.cellFactoryProperty();
                 EtatId.setCellValueFactory(new PropertyValueFactory<>("etat"));
-                // EtatId.cellFactoryProperty();
                 PlaceId.setCellValueFactory(new PropertyValueFactory<>("nbPlace"));
-                //PlaceId.cellFactoryProperty();
                 StandsId.setCellValueFactory(new PropertyValueFactory<>("nbStand"));
-                //StandsId.cellFactoryProperty();
                 PrixId.setCellValueFactory(new PropertyValueFactory<>("prix"));
-                //PrixId.cellFactoryProperty();
                 ImageId.setCellValueFactory(new PropertyValueFactory<>("image"));
-                //ImageId.cellFactoryProperty();
 
             } catch (SQLException ex) {
                 Logger.getLogger(ConsulterEventAdminController.class.getName()).log(Level.SEVERE, null, ex);
@@ -113,7 +104,6 @@ public class ConsulterEventAdminController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(ConsulterEventAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        // TODO
     }
 
     @FXML
@@ -121,11 +111,6 @@ public class ConsulterEventAdminController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AcceuilEvent.fxml"));
         Parent root = loader.load();
         AddEventId.getScene().setRoot(root);
-        //Stage st = new Stage();
-        //Scene scene = new Scene(root);
-        // scene.setRoot(root);
-        //st.setScene(scene);
-        //st.show();
     }
 
     @FXML
@@ -133,11 +118,6 @@ public class ConsulterEventAdminController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AddEvent.fxml"));
         Parent root = loader.load();
         AddEventId.getScene().setRoot(root);
-//        Stage st = new Stage();
-//        Scene scene = new Scene(root);
-//        scene.setRoot(root);
-//        st.setScene(scene);
-//        st.show();
     }
 
     @FXML
@@ -151,7 +131,6 @@ public class ConsulterEventAdminController implements Initializable {
             Event e_sup = new Event();
             EventService es = new EventService();
 
-            //AdminEventTableId.setOnMouseClicked(( ev) -> {
             Event E = AdminEventTableId.getItems().get(AdminEventTableId.getSelectionModel().getSelectedIndex());
             e_sup.setIdEvenement(E.getIdEvenement());
             es.deleteEvenementById(e_sup.getIdEvenement());
@@ -164,23 +143,14 @@ public class ConsulterEventAdminController implements Initializable {
                     ObservableList<Event> obs = FXCollections.observableArrayList(pers);
                     AdminEventTableId.setItems(obs);
                     NomId.setCellValueFactory(new PropertyValueFactory<>("nomEvenement"));
-                    //NomId.cellFactoryProperty();
                     AdresseId.setCellValueFactory(new PropertyValueFactory<>("adresse"));
-                    //AdresseId.cellFactoryProperty();
                     DebutId.setCellValueFactory(new PropertyValueFactory<>("dateDebut"));
-                    //DebutId.cellFactoryProperty();
                     FinId.setCellValueFactory(new PropertyValueFactory<>("dateFin"));
-                    //FinId.cellFactoryProperty();
                     EtatId.setCellValueFactory(new PropertyValueFactory<>("etat"));
-                    // EtatId.cellFactoryProperty();
                     PlaceId.setCellValueFactory(new PropertyValueFactory<>("nbPlace"));
-                    //PlaceId.cellFactoryProperty();
                     StandsId.setCellValueFactory(new PropertyValueFactory<>("nbStand"));
-                    //StandsId.cellFactoryProperty();
                     PrixId.setCellValueFactory(new PropertyValueFactory<>("prix"));
-                    //PrixId.cellFactoryProperty();
                     ImageId.setCellValueFactory(new PropertyValueFactory<>("image"));
-                    //ImageId.cellFactoryProperty();
 
                 } catch (SQLException ex) {
                     Logger.getLogger(ConsulterEventAdminController.class.getName()).log(Level.SEVERE, null, ex);
@@ -188,11 +158,6 @@ public class ConsulterEventAdminController implements Initializable {
             } catch (SQLException ex) {
                 Logger.getLogger(ConsulterEventAdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
-//            ArrayList<Event> pers2 = (ArrayList<Event>) es.selectEvenement();
-//            System.out.println(pers2.size());
-//            ObservableList<Event> obs2 = FXCollections.observableArrayList(pers2);
-//            AdminEventTableId.setItems(obs2);
-            //  });
         } else {
 
         }
@@ -204,35 +169,7 @@ public class ConsulterEventAdminController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateEvent.fxml"));
         Parent root = loader.load();
         BackConsulterEventId.getScene().setRoot(root);
-//                Stage st = new Stage();
-//                Scene scene = new Scene(root);
-//                scene.setRoot(root);
-//                st.setScene(scene);
-//                st.show();
     }
-
-//    @FXML
-//    private void DeleteEvent(MouseEvent event) throws SQLException {
-//        
-//         Event e_sup = new Event();
-//        EventService es = new EventService();
-//        System.out.println("123");
-//        
-//        AdminEventTableId.setOnMouseClicked((MouseEvent) -> {
-//            System.out.println("456");
-//            Event E = AdminEventTableId.getItems().get(AdminEventTableId.getSelectionModel().getSelectedIndex());
-//            e_sup.setIdEvenement(E.getIdEvenement());
-//            es.deleteEvenementById(e_sup.getIdEvenement());
-//            
-//            ArrayList<Event> pers = (ArrayList<Event>) es.selectEvenement();
-//            ObservableList<Event> obs = FXCollections.observableArrayList(pers);
-//            AdminEventTableId.setItems(obs);
-//        });
-//        Alert ajoutdoneAlert = new Alert(Alert.AlertType.INFORMATION);
-//            ajoutdoneAlert.setTitle("Done");
-//            ajoutdoneAlert.setContentText("Evénement supprimé");
-//            ajoutdoneAlert.show();
-//    }
 
     @FXML
     private void searchEvent(KeyEvent event) throws SQLException {

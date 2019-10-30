@@ -4,11 +4,18 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UpdateEventController">
    <children>
+      <ImageView fitHeight="500.0" fitWidth="650.0" layoutX="53.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/modifier.png" />
+         </image>
+      </ImageView>
       <Label layoutX="85.0" layoutY="117.0" text="ID :" />
       <Label layoutX="85.0" layoutY="151.0" text="Nom Event :" />
       <Label layoutX="84.0" layoutY="182.0" text="Adresse :" />
@@ -28,15 +35,15 @@
       <TextField fx:id="UpdateStandId" layoutX="293.0" layoutY="290.0" prefHeight="25.0" prefWidth="65.0" />
       <TextField fx:id="UpdatePrixId" layoutX="428.0" layoutY="290.0" prefHeight="25.0" prefWidth="67.0" />
       <TextField fx:id="UpdateImageId" layoutX="251.0" layoutY="343.0" promptText="            Option" />
-      <Button layoutX="10.0" layoutY="449.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Back" textFill="#0f600c">
+      <Button fx:id="BUpdateEventId" layoutX="10.0" layoutY="449.0" mnemonicParsing="false" onAction="#BUpdateEvent" prefHeight="30.0" prefWidth="60.0" text="Back" textFill="#0f600c">
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Button fx:id="UpdateEventId" layoutX="484.0" layoutY="401.0" mnemonicParsing="false" onAction="#Updateevent" prefHeight="51.0" prefWidth="117.0" text="Valider" />
+      <Button fx:id="UpdateEventId" layoutX="476.0" layoutY="398.0" mnemonicParsing="false" onAction="#Updateevent" prefHeight="51.0" prefWidth="117.0" text="Valider" textFill="#0f600c" />
       <Button layoutX="111.0" layoutY="343.0" mnemonicParsing="false" onAction="#UpdateImage" prefHeight="25.0" prefWidth="108.0" text="Modifier Photo " />
-      <Label layoutX="26.0" layoutY="24.0" prefHeight="48.0" prefWidth="375.0" text="Modifier un événement ">
+      <Label layoutX="48.0" layoutY="39.0" prefHeight="49.0" prefWidth="386.0" text="Modifier un événement " textFill="#0f600c">
          <font>
-            <Font size="28.0" />
+            <Font size="33.0" />
          </font>
       </Label>
    </children>

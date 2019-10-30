@@ -4,11 +4,18 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddEventController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddEventController">
    <children>
+      <ImageView fitHeight="454.0" fitWidth="457.0" layoutX="182.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/fleurrose.png" />
+         </image>
+      </ImageView>
       <Label layoutX="159.0" layoutY="132.0" text="Nom Event :" textAlignment="CENTER" />
       <Label layoutX="159.0" layoutY="170.0" text="Adresse :" textAlignment="CENTER" />
       <Label layoutX="159.0" layoutY="210.0" text="Date Début :" />
@@ -23,7 +30,7 @@
       <TextField fx:id="AddPlaceEventid" layoutX="208.0" layoutY="319.0" prefHeight="25.0" prefWidth="48.0" />
       <TextField fx:id="AddStandEventid" layoutX="321.0" layoutY="319.0" prefHeight="25.0" prefWidth="48.0" />
       <TextField fx:id="AddPrixEventid" layoutX="412.0" layoutY="319.0" prefHeight="25.0" prefWidth="42.0" />
-      <Button fx:id="AddEventid" layoutX="484.0" layoutY="401.0" mnemonicParsing="false" onAction="#AddEvent" prefHeight="51.0" prefWidth="117.0" text="Valider" />
+      <Button fx:id="AddEventid" layoutX="484.0" layoutY="401.0" mnemonicParsing="false" onAction="#AddEvent" prefHeight="51.0" prefWidth="117.0" text="Valider" textFill="#0f600c" />
       <Button fx:id="BackAddEventid" layoutX="10.0" layoutY="449.0" mnemonicParsing="false" onAction="#BackAddEvent" prefHeight="30.0" prefWidth="60.0" text="Back" textFill="#0f600c">
          <font>
             <Font size="16.0" />
@@ -32,7 +39,7 @@
       <DatePicker fx:id="AddFinEventid" layoutX="251.0" layoutY="238.0" />
       <TextField fx:id="imageeventid" layoutX="286.0" layoutY="359.0" promptText="              Option" />
       <Button layoutX="172.0" layoutY="359.0" mnemonicParsing="false" onAction="#ajoutphoto" text="Ajouter Image" />
-      <Label layoutX="37.0" layoutY="26.0" prefHeight="51.0" prefWidth="406.0" text="Ajouter un événement ">
+      <Label layoutX="37.0" layoutY="26.0" prefHeight="51.0" prefWidth="406.0" text="Ajouter un événement " textFill="#0f600c">
          <font>
             <Font size="28.0" />
          </font>

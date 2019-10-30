@@ -14,27 +14,27 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author mayssa
+ * @author HIDOUS MAYSSA
  */
-public class AcceuilEvent extends Application{
+public class AcceuilEvent extends Application {
 
     public void start(Stage primaryStage) {
-      
+
         try {
-           Parent root = FXMLLoader.load(getClass().getResource("AcceuilEvent.fxml"));
-        
-        
-        Scene scene = new Scene(root);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+            Parent root = FXMLLoader.load(getClass().getResource("AcceuilEvent.fxml"));
+
+            Scene scene = new Scene(root);
+
+            primaryStage.setTitle("Hello World!");
+            primaryStage.setScene(scene);
+            primaryStage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());;
         }
     }
+
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

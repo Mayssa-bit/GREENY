@@ -15,27 +15,27 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author mayss
+ * @author HIDOUS MAYSSA
  */
 public class AcceuilEventUser extends Application {
 
     public void start(Stage primaryStage) {
-      
+
         try {
-           Parent root = FXMLLoader.load(getClass().getResource("AcceuilEventUser.fxml"));
-        
-        
-        Scene scene = new Scene(root);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+            Parent root = FXMLLoader.load(getClass().getResource("AcceuilEventUser.fxml"));
+
+            Scene scene = new Scene(root);
+
+            primaryStage.setTitle("Hello World!");
+            primaryStage.setScene(scene);
+            primaryStage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());;
         }
     }
+
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
