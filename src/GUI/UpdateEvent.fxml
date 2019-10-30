@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UpdateEventController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.UpdateEventController">
    <children>
       <ImageView fitHeight="500.0" fitWidth="650.0" layoutX="53.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Image/modifier.png" />
+            <Image url="@../Photos/modifier.png" />
          </image>
       </ImageView>
       <Label layoutX="85.0" layoutY="117.0" text="ID :" />

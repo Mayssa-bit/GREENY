@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package Gui;
 
-import Entities.Event;
-import Service.EventService;
+import Entites.Event;
+import Services.Impl.EventService;
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -44,6 +44,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+
 
 /**
  * FXML Controller class
@@ -159,9 +161,8 @@ public class AddEventController implements Initializable {
             ajoutdoneAlert.setContentText("Evénement ajouté");
             ajoutdoneAlert.show();
             AddAdresseEventid.getScene().setRoot(root);
-        }
-
     }
+        }
 
     @FXML
     private void BackAddEvent(ActionEvent event) throws IOException {

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package Gui;
 
-import Entities.Event;
-import Entities.Reservation;
-import Service.EventService;
-import Service.ReservationService;
+import Entites.Event;
+import Entites.Reservation;
+import Services.Impl.EventService;
+import Services.Impl.ReservationService;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -127,9 +127,11 @@ public class AcceuilEventUserController implements Initializable {
 
     @FXML
     private void BackAcceuilEventUser(ActionEvent event) throws IOException {
-        ((Node) event.getSource()).getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AcceuilEvent.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserHome.fxml"));
         Parent root = loader.load();
+        AnnulerBt.getScene().setRoot(root);
+
+
     }
 
     @FXML

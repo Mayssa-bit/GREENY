@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AcceuilEventUserController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.AcceuilEventUserController">
    <children>
       <ImageView fitHeight="650.0" fitWidth="650.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Image/ap.jpg" />
+            <Image url="@../Photos/ap.jpg" />
          </image>
       </ImageView>
       <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="163.0" layoutY="14.0" prefHeight="93.0" prefWidth="324.0" text="Accueil Evenements" textAlignment="CENTER" textFill="#0f600c">

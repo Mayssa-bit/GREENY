@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.MenuUtiisateurlController">
+   <children>
+      <AnchorPane prefHeight="502.0" prefWidth="342.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="14.0" layoutY="6.0" text="Welcome to " textFill="#fffbfb">
+               <font>
+                  <Font name="Arial Narrow" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="14.0" prefHeight="50.0" prefWidth="130.0" text="GREENY" textFill="#0f600c">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="335.0" fitWidth="342.0" layoutX="6.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/listeuser.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="342.0" prefHeight="500.0" prefWidth="306.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="81.0" layoutY="26.0" text="Liste Utilisateurs">
+               <font>
+                  <Font name="Arial Narrow" size="30.0" />
+               </font>
+            </Label>
+            <TableView fx:id="userTable" layoutX="-324.0" layoutY="105.0" prefHeight="200.0" prefWidth="586.0">
+              <columns>
+                <TableColumn fx:id="nomu" prefWidth="109.0" text="nom" />
+                <TableColumn fx:id="prenomu" prefWidth="97.0" text="prenom" />
+                  <TableColumn fx:id="emailu" prefWidth="94.0" text="email" />
+                  <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
+                  <TableColumn fx:id="phoneu" prefWidth="118.0" text="phone" />
+                  <TableColumn fx:id="typeu" prefWidth="149.0" text="type" />
+              </columns>
+            </TableView>
+            <TextField fx:id="searchfield" layoutX="34.0" layoutY="72.0" prefHeight="25.0" prefWidth="228.0" promptText="Rechercher ..." />
+            <Button layoutX="159.0" layoutY="337.0" mnemonicParsing="false" onAction="#ClientList" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #0f600c;" text="Actualiser" textFill="WHITE" />
+            <Button fx:id="supprimer" alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="337.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #0f600c;" text="Supprimer" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="retourid" layoutX="589.0" layoutY="457.0" mnemonicParsing="false" onAction="#backtohome" prefHeight="36.0" prefWidth="55.0" style="-fx-background-color: #0f600c;" text="Back" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

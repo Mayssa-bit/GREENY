@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package Gui;
 
-import Entities.Event;
-import Service.EventService;
+import Entites.Event;
+import Services.Impl.EventService;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -108,7 +108,7 @@ public class ConsulterEventAdminController implements Initializable {
 
     @FXML
     private void BackConsulterEvent(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AcceuilEvent.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminHome.fxml"));
         Parent root = loader.load();
         AddEventId.getScene().setRoot(root);
     }

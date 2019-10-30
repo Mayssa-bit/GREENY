@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package Gui;
 
-import Entities.Event;
-import Service.EventService;
+import Entites.Event;
+import Services.Impl.EventService;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.UserHomeController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="-2.0" prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="470.0" fitWidth="546.0" layoutX="60.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Photos/utilisuser.jpg" />
+               </image>
+            </ImageView>
+            <BorderPane prefHeight="459.0" />
+            <Button fx:id="logoutBtn" layoutX="538.0" layoutY="446.0" mnemonicParsing="false" onAction="#logOut" prefHeight="40.0" prefWidth="123.0" style="-fx-background-color: white;" text="Logout" textFill="#0f600c">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font></Button>
+            <Button fx:id="profileBtn" layoutX="522.0" layoutY="14.0" mnemonicParsing="false" onAction="#profile" prefHeight="48.0" prefWidth="139.0" style="-fx-background-color: white;" text="Profil" textFill="#0f600c">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <TextField fx:id="loginTxt" disable="true" editable="false" layoutX="445.0" layoutY="26.0" prefHeight="25.0" prefWidth="107.0" />
+            <Button fx:id="profilbtn4" layoutX="29.0" layoutY="318.0" mnemonicParsing="false" onAction="#reclamations" opacity="0.74" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #0f600c;" text="Réclamations" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <Button fx:id="profileBtn5" layoutX="29.0" layoutY="262.0" mnemonicParsing="false" onAction="#produits" opacity="0.74" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #0f600c;" text="Déposer produit" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <Button fx:id="profileBtn6" layoutX="29.0" layoutY="206.0" mnemonicParsing="false" onAction="#evenements" opacity="0.74" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #0f600c;" text="Consulter Evenements" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <Button fx:id="profileBtn7" layoutX="29.0" layoutY="150.0" mnemonicParsing="false" onAction="#Magasin" opacity="0.74" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #0f600c;" text="Magasin" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
