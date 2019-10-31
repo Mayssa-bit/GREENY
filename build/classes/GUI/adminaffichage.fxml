@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="717.0" prefWidth="1101.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.AdminaffichageController">
+   <children>
+      <TableView fx:id="afficheadmin" layoutY="126.0" prefHeight="530.0" prefWidth="1086.0" stylesheets="@dark-theme.css">
+        <columns>
+            <TableColumn fx:id="adresseco" prefWidth="85.5999755859375" text="Adresse" />
+            <TableColumn fx:id="emailco" prefWidth="128.8000030517578" text="Email" />
+            <TableColumn fx:id="numuco" prefWidth="77.5999755859375" text="Numu" />
+            <TableColumn fx:id="quantiteco" prefWidth="67.19998168945312" text="Quantité" />
+            <TableColumn fx:id="prixcomco" prefWidth="98.39996337890625" text="Prixcomm" />
+            <TableColumn fx:id="datecco" prefWidth="109.60003662109375" text="Datec" />
+            <TableColumn fx:id="datearrco" prefWidth="136.800048828125" text="Datearrive" />
+            <TableColumn fx:id="nomco" prefWidth="42.4000244140625" text="Nom" />
+            <TableColumn fx:id="prenomco" prefWidth="64.7999267578125" text="Prenom" />
+            <TableColumn fx:id="nomproco" prefWidth="76.7999267578125" text="Nompro" />
+            <TableColumn fx:id="imageco" prefWidth="64.0" text="Image" />
+            <TableColumn fx:id="prixproco" prefWidth="56.0001220703125" text="Prixproduit" />
+            <TableColumn fx:id="Validationn" prefWidth="75.0" text="Validation" />
+        </columns>
+      </TableView>
+      <Button fx:id="chercher1" layoutX="469.0" layoutY="41.0" mnemonicParsing="false" onAction="#chercher11" prefHeight="42.0" prefWidth="106.0" style="-fx-background-color: blue; -fx-background-radius: 100;" text="Chercher" />
+      <DatePicker fx:id="date2" layoutX="280.0" layoutY="45.0" prefHeight="34.0" prefWidth="174.0" />
+      <Button fx:id="suppadmin" layoutX="589.0" layoutY="668.0" mnemonicParsing="false" onAction="#admindelete" prefHeight="38.0" prefWidth="228.0" stylesheets="@bader.css" text="Supprimer commande" />
+      <TextField fx:id="textaff" layoutX="100.0" layoutY="45.0" onKeyTyped="#chercherkey" prefHeight="34.0" prefWidth="181.0" promptText="Taper l'adresse" />
+      <Button fx:id="stat" layoutX="693.0" layoutY="50.0" mnemonicParsing="false" onAction="#stat" prefHeight="26.0" prefWidth="136.0" text="Statistique" />
+      <Button fx:id="rapport" layoutX="693.0" layoutY="92.0" mnemonicParsing="false" onAction="#rapport" prefHeight="26.0" prefWidth="136.0" text="rapport" />
+   </children>
+</AnchorPane>

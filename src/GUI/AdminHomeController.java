@@ -45,14 +45,16 @@ public class AdminHomeController implements Initializable {
     private Button listeutilisateurid;
     @FXML
     private Button logoutid;
-     @FXML
-    private Button logoutid1;
-     @FXML
-    private Button logoutid11;
     @FXML
     private Button GoEventAdminId;
     @FXML
     private Button catId;
+    @FXML
+    private Button reclamid;
+    @FXML
+    private Button commid;
+    @FXML
+    private Button prodid;
 
     /**
      * Initializes the controller class.
@@ -125,6 +127,21 @@ public class AdminHomeController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Affichercategorie.fxml"));
         Parent root = loader.load();
         GoEventAdminId.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void reclamation(ActionEvent event) {
+    }
+
+    @FXML
+    private void commande(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("adminaffichage.fxml"));
+        Parent root = loader.load();
+        GoEventAdminId.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void produit(ActionEvent event) {
     }
 
     

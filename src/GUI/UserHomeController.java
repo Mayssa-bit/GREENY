@@ -112,7 +112,15 @@ public class UserHomeController implements Initializable {
     }
 
     @FXML
-    private void Magasin(ActionEvent event) {
+    private void Magasin(ActionEvent event) throws IOException {
+         ((Node) event.getSource()).getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("affichercommandes.fxml"));
+        Parent root = loader.load();
+        Stage st = new Stage();
+        Scene scene = new Scene(root);
+        scene.setRoot(root);
+        st.setScene(scene);
+        st.show();
     }
 
 }
