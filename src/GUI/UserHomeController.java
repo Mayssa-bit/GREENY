@@ -63,6 +63,7 @@ public class UserHomeController implements Initializable {
             Logger.getLogger(UserHomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
         loginTxt.setText(v.getLogin());
+    
         // TODO
     }
 
@@ -91,7 +92,10 @@ public class UserHomeController implements Initializable {
     }
 
     @FXML
-    private void reclamations(ActionEvent event) {
+    private void reclamations(ActionEvent event) throws IOException {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("ConsulterReclamation.fxml"));
+        Parent root = loader.load();
+        profileBtn7.getScene().setRoot(root);
     }
 
     @FXML

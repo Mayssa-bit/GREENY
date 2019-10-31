@@ -130,7 +130,10 @@ public class AdminHomeController implements Initializable {
     }
 
     @FXML
-    private void reclamation(ActionEvent event) {
+    private void reclamation(ActionEvent event) throws IOException {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("ConsulterReclamationAdmin.fxml"));
+        Parent root = loader.load();
+        GoEventAdminId.getScene().setRoot(root);
     }
 
     @FXML

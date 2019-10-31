@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" stylesheets="@CssReclamation.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.ConsulterReclamationController">
+   <children>
+      <ImageView fitHeight="519.0" fitWidth="680.0" layoutX="-29.0" layoutY="-20.0" opacity="0.61" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../Photos/img4.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tableafficher" layoutX="-7.0" layoutY="14.0" onMouseClicked="#pageS" prefHeight="300.0" prefWidth="659.0">
+        <columns>
+          <TableColumn fx:id="fxidr" prefWidth="108.0" text="ID_Reclamation" visible="false" />
+            <TableColumn fx:id="fxtype" minWidth="0.0" prefWidth="60.0" text="Type" />
+            <TableColumn fx:id="fxidu" prefWidth="98.0" text="ID_User" visible="false" />
+          <TableColumn fx:id="fxnom" prefWidth="127.0" text="Nom et Prenom" />
+            <TableColumn fx:id="fxregion" prefWidth="82.0" text="Region" />
+            <TableColumn fx:id="fxdate" prefWidth="195.0" text="Date" />
+            <TableColumn fx:id="fxdesciption" prefWidth="217.0" text="Description" />
+            <TableColumn fx:id="fxetat" minWidth="0.0" prefWidth="129.0" text="Etat" />
+        </columns>
+      </TableView>
+      <Button fx:id="buttonajouter" layoutX="241.0" layoutY="331.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="37.0" prefWidth="140.0" text="Ajouter" />
+      <Button fx:id="idRetourC" layoutX="481.0" layoutY="435.0" mnemonicParsing="false" onAction="#RetourC" prefHeight="37.0" prefWidth="130.0" text="Retour" />
+      <Button fx:id="Supp" layoutX="432.0" layoutY="331.0" mnemonicParsing="false" onAction="#Supprimer" prefHeight="37.0" prefWidth="130.0" text="Actualiser" />
+      <TextField fx:id="cherche" layoutX="216.0" layoutY="395.0" onKeyTyped="#search_sup" promptText="Region" />
+      <ComboBox fx:id="combobox" layoutX="216.0" layoutY="428.0" onAction="#Select_Type" prefWidth="150.0" promptText="Filtrer" />
+      <Label layoutX="47.0" layoutY="389.0" prefHeight="37.0" prefWidth="186.0" text="Recherche :" textFill="#07090a">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="47.0" layoutY="440.0" text="Filtrer:">
+         <font>
+            <Font name="Arial" size="21.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

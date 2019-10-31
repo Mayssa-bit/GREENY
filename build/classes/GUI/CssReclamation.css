@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28 oct. 2019, 21:17:23
+    Author     : Lenovo
+*/
+/*
+.rout{
+     -fx-background-color:blue;
+}
+.button {
+    
+  -fx-background-color: green;
+  -fx-text-fill: white;
+  -fx-background-radius: 10px;
+}
+
+.button:hover{
+  -fx-background-color: whitesmoke;
+  -fx-text-fill:green;
+  -fx-background-radius: 15px;
+}
+*/
+.button {
+
+-fx-font-weight :bold ;
+-fx-background-color:#2196f3;
+-fx-background-radius:22;
+-fx-font-size:16;
+-fx-text-fill:white;
+
+
+}
+
+.button:hover{
+
+-fx-font-weight :bold ;
+-fx-background-color:white;
+-fx-background-radius:22;
+-fx-font-size:16;
+-fx-text-fill:#2196f3;
+-fx-border-color:#2196f3;
+-fx-border-radius:20;
+-fx-border-width:3;
+-fx-rotate:5;
+
+}
+
+
+
+.button:pressed{
+
+
+-fx-font-weight :bold ;
+-fx-background-color:white;
+-fx-background-radius:22;
+-fx-font-size:16;
+-fx-text-fill:#2196f3;
+-fx-border-color:#2196f3;
+-fx-border-radius:20;
+-fx-border-width:3;
+-fx-rotate:10;
+}
